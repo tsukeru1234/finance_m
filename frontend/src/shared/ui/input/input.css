@@ -1,3 +1,8 @@
+input,
+label {
+  font-family: inherit;
+}
+
 .input-label {
   display: flex;
   color: var(--color-secondary-dark);
@@ -17,13 +22,27 @@
   font-size: var(--font-small);
   letter-spacing: var(--small-text-letter-spacing);
 }
+
+.label-small span {
+  line-height: var(--font-small);
+}
+
 .label-medium {
   font-size: var(--font-medium);
   letter-spacing: var(--medium-text-letter-spacing);
 }
+
+.label-medium span {
+  line-height: var(--font-medium);
+}
+
 .label-large {
   font-size: var(--font-large);
   letter-spacing: var(--large-text-letter-spacing);
+}
+
+.label-large span {
+  line-height: var(--font-large);
 }
 
 .label-small-gap {
@@ -78,53 +97,21 @@
   padding: var(--space-xs) var(--space-md);
   font-size: var(--font-small);
   letter-spacing: var(--small-text-letter-spacing);
+  line-height: var(--font-small);
 }
+
 .input-medium {
   width: calc(var(--space-3xl) * 6);
   padding: var(--space-xs) var(--space-md);
   font-size: var(--font-medium);
   letter-spacing: var(--medium-text-letter-spacing);
+  line-height: var(--font-medium);
 }
+
 .input-large {
   width: calc(var(--space-3xl) * 8);
   padding: var(--space-xs) var(--space-md);
   font-size: var(--font-large);
   letter-spacing: var(--large-text-letter-spacing);
-}
-
-textarea.input-small {
-  border-radius: var(--space-md);
-}
-
-textarea.input-medium {
-  border-radius: var(--space-lg);
-}
-
-textarea.input-large {
-  border-radius: var(--space-xl);
-}
-
-.input-radio-checkbox {
- align-self: center;
- accent-color: var(--color-accent-light);
-}
-
-
-
-.input-radio-checkbox.input-small {
-  width: var(--space-md);
-  height: var(--space-md);
-  margin: var(--space-xs);
-}
-
-.input-radio-checkbox.input-medium {
-  width: var(--space-lg);
-  height: var(--space-lg);
-  margin: var(--space-xs);
-}
-
-.input-radio-checkbox.input-large {
-  width: var(--space-xl);
-  height: var(--space-xl);
-  margin: var(--space-xs);
+  line-height: var(--font-large);
 }

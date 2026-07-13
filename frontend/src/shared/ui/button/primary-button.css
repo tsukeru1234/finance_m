@@ -1,0 +1,28 @@
+.primary-button {
+  border-radius: 200px;
+  border: 0;
+  outline: none;
+  background-color: var(--color-secondary-light);
+  color: var(--color-secondary-dark);
+  transition: all 250ms ease-in-out;
+}
+
+.primary-button:hover,
+.primary-button:focus {
+  transform: scale(1.02);
+  background-color: var(--color-secondary-dark);
+  color: var(--color-secondary-light);
+}
+
+.primary-button:active {
+  transform: scale(0.95);
+  background-color: var(--color-accent-light);
+  color: var(--color-primary);
+}
+
+.primary-button:disabled {
+  background-color: var(--color-accent-dark);
+  color: var(--color-primary);
+  cursor: not-allowed;
+  pointer-events: none;
+}

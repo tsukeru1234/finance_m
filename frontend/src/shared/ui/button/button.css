@@ -1,29 +1,5 @@
-.button {
-  border-radius: 200px;
-  border: 0;
-  outline: none;
-  background-color: var(--color-secondary-light);
-  color: var(--color-secondary-dark);
-  transition: all 250ms ease-in-out;
-}
-
-.button:hover {
-  transform: scale(1.02);
-  background-color: var(--color-secondary-dark);
-  color: var(--color-secondary-light);
-}
-
-.button:active {
-  transform: scale(0.95);
-  background-color: var(--color-accent-light);
-  color: var(--color-primary);
-}
-
-button:disabled {
-  background-color: var(--color-accent-dark);
-  color: var(--color-primary);
-  cursor: not-allowed;
-  pointer-events: none;
+button {
+  font-family: inherit;
 }
 
 .button-small {
@@ -32,14 +8,26 @@ button:disabled {
   letter-spacing: var(--small-text-letter-spacing);
 }
 
+.button-small span {
+  line-height: var(--font-small);
+}
+
 .button-medium {
   padding: var(--space-xs) var(--space-xl);
   font-size: var(--font-medium);
   letter-spacing: var(--medium-text-letter-spacing);
 }
 
+.button-medium span {
+  line-height: var(--font-medium);
+}
+
 .button-large {
   padding: var(--space-xs) var(--space-2xl);
   font-size: var(--font-large);
   letter-spacing: var(--large-text-letter-spacing);
+}
+
+.button-large span {
+  line-height: var(--font-large);
 }

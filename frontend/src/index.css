@@ -1,5 +1,3 @@
-@import "./shared/ui/button/button.css";
-@import "./shared/ui/input/input.css";
 
 @font-face {
   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
@@ -11,23 +9,27 @@
 }
 
 :root {
+  /* ?Color */
   --color-primary: #e2e1f7;
   --color-secondary-light: #888ee3;
   --color-secondary-dark: #1b1c80;
   --color-accent-light: #1f24bf;
   --color-accent-dark: #484885;
+  --color-sematic-bad: #c40100;
 
+  /* ?Font */
   --font-small: 24px;
   --font-medium: 32px;
   --font-large: 48px;
-
   --small-text-letter-spacing: 0.01em;
   --medium-text-letter-spacing: -0.02em;
   --large-text-letter-spacing: 0.025em;
 
+  /* ?Border */
   --border-xs: 1px;
   --border-md: 2px;
 
+  /* ?Space */
   --space-xs: 8px;
   --space-md: 16px;
   --space-lg: 24px;
@@ -42,19 +44,17 @@ body {
   font-family: "Comic Relief", serif;
 }
 
-button,
-input,
-select,
-textarea,
-label {
-  font-family: inherit;
-}
-
 textarea {
+  font-family: inherit;
   overflow-y: auto;
   scrollbar-width: none;
 
   &::-webkit-scrollbar {
     display: none;
   }
+}
+
+.error-massage{
+  color: var(--color-sematic-bad);
+  font-size: var(--font-small);
 }

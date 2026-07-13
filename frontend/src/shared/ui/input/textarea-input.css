@@ -1,0 +1,21 @@
+textarea {
+  font-family: inherit;
+  overflow-y: auto;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+textarea.input-small {
+  border-radius: var(--space-md);
+}
+
+textarea.input-medium {
+  border-radius: var(--space-lg);
+}
+
+textarea.input-large {
+  border-radius: var(--space-xl);
+}

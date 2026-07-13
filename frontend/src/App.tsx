@@ -4,7 +4,11 @@ import Input from "./shared/ui/input/Input";
 function App() {
   return (
     <>
-      <Button type="button" style="button-small">
+      <Button type="button" style="primary-button button-small">
+        <span>Text</span>
+      </Button>
+      <br></br>
+      <Button type="button" style="secondary-button button-small">
         <span>Text</span>
       </Button>
       <br></br>
@@ -18,7 +22,7 @@ function App() {
       />
       <br></br>
       <Input
-        inputId="4"
+        inputId="10"
         style="input-large"
         labelStyle="label-small label-col label-large-gap"
         type="textarea"
@@ -35,11 +39,30 @@ function App() {
       />
       <br></br>
       <Input
-        inputId="6"
+        inputId="644"
         style="input-medium"
-        labelStyle="label-medium label-small-gap"
-        type="checkbox"
+        labelStyle="label-medium label-small-gap label-row"
+        type="number"
         labelTitle="Text"
+        defaultValue={1}
+      />
+      <br></br>
+      <Input
+        inputId="1212414214"
+        style="input-small"
+        labelStyle="label-medium label-small-gap label-row"
+        type="number"
+        labelTitle="Text"
+        defaultValue={1}
+      />
+      <br></br>
+      <Input
+        inputId="24234234"
+        style="input-large"
+        labelStyle="label-large label-small-gap label-row"
+        type="number"
+        labelTitle="Text"
+        defaultValue={1}
       />
       <br></br>
     </>

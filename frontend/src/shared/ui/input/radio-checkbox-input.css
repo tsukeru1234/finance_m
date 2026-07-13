@@ -1,0 +1,22 @@
+.input-radio-checkbox {
+  align-self: center;
+  accent-color: var(--color-accent-light);
+}
+
+.input-radio-checkbox.input-small {
+  width: var(--space-md);
+  height: var(--space-md);
+  margin: var(--space-xs);
+}
+
+.input-radio-checkbox.input-medium {
+  width: var(--space-lg);
+  height: var(--space-lg);
+  margin: var(--space-xs);
+}
+
+.input-radio-checkbox.input-large {
+  width: var(--space-xl);
+  height: var(--space-xl);
+  margin: var(--space-xs);
+}

@@ -1,4 +1,7 @@
 import type { JSX } from "react";
+import "./button.css"
+import "./primary-button.css"
+import "./secondary-button.css"
 
 interface ButtonProps{
   style: string
@@ -10,7 +13,7 @@ interface ButtonProps{
 
 const Button = ({style, type, disable, click, children}: ButtonProps) => {
   return (
-    <button className={`button ${style}`} disabled={disable} type={type} onClick={click}>{children}</button>
+    <button className={style} disabled={disable} type={type} onClick={click}>{children}</button>
   )
 }
 
