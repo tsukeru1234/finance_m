@@ -9,38 +9,64 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as MainPagesRouteImport } from './routes/main-pages'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as MainPagesCalculationRouteImport } from './routes/main-pages.calculation'
 
+const MainPagesRoute = MainPagesRouteImport.update({
+  id: '/main-pages',
+  path: '/main-pages',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MainPagesCalculationRoute = MainPagesCalculationRouteImport.update({
+  id: '/calculation',
+  path: '/calculation',
+  getParentRoute: () => MainPagesRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/main-pages': typeof MainPagesRouteWithChildren
+  '/main-pages/calculation': typeof MainPagesCalculationRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/main-pages': typeof MainPagesRouteWithChildren
+  '/main-pages/calculation': typeof MainPagesCalculationRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/main-pages': typeof MainPagesRouteWithChildren
+  '/main-pages/calculation': typeof MainPagesCalculationRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/main-pages' | '/main-pages/calculation'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/main-pages' | '/main-pages/calculation'
+  id: '__root__' | '/' | '/main-pages' | '/main-pages/calculation'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  MainPagesRoute: typeof MainPagesRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/main-pages': {
+      id: '/main-pages'
+      path: '/main-pages'
+      fullPath: '/main-pages'
+      preLoaderRoute: typeof MainPagesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,11 +74,31 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/main-pages/calculation': {
+      id: '/main-pages/calculation'
+      path: '/calculation'
+      fullPath: '/main-pages/calculation'
+      preLoaderRoute: typeof MainPagesCalculationRouteImport
+      parentRoute: typeof MainPagesRoute
+    }
   }
 }
 
+interface MainPagesRouteChildren {
+  MainPagesCalculationRoute: typeof MainPagesCalculationRoute
+}
+
+const MainPagesRouteChildren: MainPagesRouteChildren = {
+  MainPagesCalculationRoute: MainPagesCalculationRoute,
+}
+
+const MainPagesRouteWithChildren = MainPagesRoute._addFileChildren(
+  MainPagesRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  MainPagesRoute: MainPagesRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
