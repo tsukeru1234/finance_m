@@ -9,13 +9,17 @@ textarea {
 }
 
 textarea.input-small {
+  padding: var(--space-md) var(--space-md);
   border-radius: var(--space-md);
+  
 }
 
 textarea.input-medium {
   border-radius: var(--space-lg);
+  padding: var(--space-md) var(--space-md);
 }
 
 textarea.input-large {
   border-radius: var(--space-xl);
+  padding: var(--space-md) var(--space-md);
 }

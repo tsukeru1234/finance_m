@@ -11,10 +11,10 @@
 :root {
   /* ?Color */
   --color-primary: #e2e1f7;
-  --color-secondary-light: #888ee3;
-  --color-secondary-dark: #1b1c80;
-  --color-accent-light: #1f24bf;
-  --color-accent-dark: #484885;
+  --color-secondary-light: #9ab7dd;
+  --color-secondary-dark: #0a1931;
+  --color-accent-light: #377ca4;
+  --color-accent-dark: #1a3d63;
   --color-sematic-bad: #c40100;
 
   /* ?Font */
@@ -28,6 +28,7 @@
   /* ?Border */
   --border-xs: 1px;
   --border-md: 2px;
+  --border-lg: 4px;
 
   /* ?Space */
   --space-xs: 8px;
@@ -42,6 +43,7 @@
 
 body {
   font-family: "Comic Relief", serif;
+  margin: 0;
 }
 
 textarea {

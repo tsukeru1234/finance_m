@@ -2,27 +2,27 @@
   border-radius: 200px;
   outline: none;
   background-color: transparent;
-  border: solid var(--border-md) var(--color-secondary-light);
-  color: var(--color-secondary-light);
+  border: solid var(--border-md) var(--color-accent-dark);
+  color: var(--color-accent-dark);
   transition: all 250ms ease-in-out;
 }
 
 .secondary-button:hover,
 .secondary-button:focus {
   transform: scale(1.02);
-  border: solid var(--border-md) var(--color-secondary-dark);
-  color: var(--color-secondary-dark);
-}
-
-.secondary-button:active {
-  transform: scale(0.95);
   border: solid var(--border-md) var(--color-accent-light);
   color: var(--color-accent-light);
 }
 
+.secondary-button:active {
+  transform: scale(0.95);
+  border: solid var(--border-md) var(--color-secondary-dark);
+  color: var(--color-secondary-dark);
+}
+
 .secondary-button:disabled {
-  border: dashed var(--border-md) var(--color-accent-dark);
-  color: var(--color-accent-dark);
+  border: dashed var(--border-md) var(--color-secondary-light);
+  color: var(--color-secondary-light);
   cursor: not-allowed;
   pointer-events: none;
 }

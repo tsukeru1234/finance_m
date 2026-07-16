@@ -4,19 +4,19 @@
   align-items: center;
 }
 
-.input-number-box.input-small{
-  width: calc(var(--space-xl) * 4);
-  padding: var(--space-xs) var(--space-md);
-}
-
-.input-number-box.input-medium{
+.input-number-box.input-small {
   width: calc(var(--space-xl) * 6);
-  padding: var(--space-xs) var(--space-md);
+  height: var(--space-xl);
 }
 
-.input-number-box.input-large{
-  width: calc(var(--space-xl) * 8);
-  padding: var(--space-xs) var(--space-md);
+.input-number-box.input-medium {
+  width: calc(var(--space-xl) * 7);
+  height: var(--space-2xl);
+}
+
+.input-number-box.input-large {
+  width: calc(var(--space-xl) * 10);
+  height: var(--space-3xl);
 }
 
 .input-number-box button {
@@ -27,6 +27,10 @@
   padding: 0;
   cursor: pointer;
   transition: all 250ms ease-in-out;
+}
+
+.input-number-box.button-none button {
+  display: none;
 }
 
 .input-number-box.input-small button {
@@ -74,20 +78,24 @@
   outline: none;
 }
 
+.input-number-box.button-none input {
+  width: 100%;
+}
+
 .input-number.input-small {
-  width: var(--space-xl);
+  width: calc(var(--space-xl) * 3);
   padding: 0;
   height: var(--font-small);
 }
 
 .input-number.input-medium {
-  width: calc(var(--space-xl) * 2);
+  width: calc(var(--space-xl) * 4);
   padding: 0;
   height: var(--font-medium);
 }
 
 .input-number.input-large {
-  width: calc(var(--space-xl) * 3);
+  width: calc(var(--space-xl) * 6);
   padding: 0;
   height: var(--font-large);
 }

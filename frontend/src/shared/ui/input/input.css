@@ -5,7 +5,7 @@ label {
 
 .input-label {
   display: flex;
-  color: var(--color-secondary-dark);
+  color: var(--color-accent-dark);
 }
 
 .label-col {
@@ -24,6 +24,7 @@ label {
 }
 
 .label-small span {
+  height: var(--font-small);
   line-height: var(--font-small);
 }
 
@@ -33,6 +34,7 @@ label {
 }
 
 .label-medium span {
+  height: var(--font-medium);
   line-height: var(--font-medium);
 }
 
@@ -42,6 +44,7 @@ label {
 }
 
 .label-large span {
+  height: var(--font-large);
   line-height: var(--font-large);
 }
 
@@ -61,12 +64,12 @@ label {
   border-radius: 100px;
   border: solid var(--border-md) var(--color-secondary-light);
   background-color: transparent;
-  color: var(--color-secondary-dark);
+  color: var(--color-accent-light);
   transition: all 400ms ease-in-out;
 }
 
 .input::placeholder {
-  color: var(--color-secondary-dark);
+  color: var(--color-accent-dark);
   opacity: 0.6;
 }
 
@@ -81,19 +84,19 @@ label {
 }
 
 .input:hover {
-  border-color: var(--color-secondary-dark);
-  color: var(--color-accent-light);
+  border-color: var(--color-accent-dark);
 }
 
 .input:focus {
-  border-color: var(--color-secondary-dark);
-  background-color: var(--color-secondary-dark);
+  border-color: var(--color-accent-dark);
+  background-color: var(--color-accent-dark);
   color: var(--color-secondary-light);
   outline: none;
 }
 
 .input-small {
   width: calc(var(--space-3xl) * 4);
+  height: calc(var(--font-small) + var(--space-xs) * 2 + var(--border-md) * 2);
   padding: var(--space-xs) var(--space-md);
   font-size: var(--font-small);
   letter-spacing: var(--small-text-letter-spacing);
@@ -102,6 +105,7 @@ label {
 
 .input-medium {
   width: calc(var(--space-3xl) * 6);
+  height: calc(var(--font-medium) + var(--space-xs) * 2 + var(--border-md) * 2);
   padding: var(--space-xs) var(--space-md);
   font-size: var(--font-medium);
   letter-spacing: var(--medium-text-letter-spacing);
@@ -110,6 +114,7 @@ label {
 
 .input-large {
   width: calc(var(--space-3xl) * 8);
+  height: calc(var(--font-large) + var(--space-xs) * 2 + var(--border-md) * 2);
   padding: var(--space-xs) var(--space-md);
   font-size: var(--font-large);
   letter-spacing: var(--large-text-letter-spacing);

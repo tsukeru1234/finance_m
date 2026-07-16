@@ -6,9 +6,6 @@ button {
   padding: var(--space-xs) var(--space-lg);
   font-size: var(--font-small);
   letter-spacing: var(--small-text-letter-spacing);
-}
-
-.button-small span {
   line-height: var(--font-small);
 }
 
@@ -16,9 +13,6 @@ button {
   padding: var(--space-xs) var(--space-xl);
   font-size: var(--font-medium);
   letter-spacing: var(--medium-text-letter-spacing);
-}
-
-.button-medium span {
   line-height: var(--font-medium);
 }
 
@@ -26,8 +20,6 @@ button {
   padding: var(--space-xs) var(--space-2xl);
   font-size: var(--font-large);
   letter-spacing: var(--large-text-letter-spacing);
-}
-
-.button-large span {
   line-height: var(--font-large);
 }
+
