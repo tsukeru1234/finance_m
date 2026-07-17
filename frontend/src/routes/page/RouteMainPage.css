@@ -1,16 +1,53 @@
 .main-page-box {
-    box-sizing: border-box;
-    display: grid;
-    grid-template-columns: 3fr 17fr;
-    gap: var(--space-xs);
-    height: 100vh;
+  position: relative;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 4fr 22fr;
+  gap: var(--space-xs);
+  height: 100vh;
 }
 
 .info-box {
-    box-sizing: border-box;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    gap: var(--space-xs);
-    padding: calc(var(--space-xs) * 8 ) var(--space-xl);
+  position: relative;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: var(--space-xs);
+  padding: calc(var(--space-xs) * 8) var(--space-xl);
+}
+
+.bg-main-page-top {
+  position: absolute;
+  top: 0;
+  z-index: 0;
+  height: 18%;
+  width: 100%;
+  background-color: var(--color-accent-dark);
+}
+
+.bg-main-page-bottom {
+  position: absolute;
+  bottom: 0;
+  z-index: 0;
+  height: 82%;
+  width: 100%;
+  background-color: var(--color-secondary-light);
+}
+
+.main-page-nav-box{
+    grid-column: 1 / 2;
+    z-index: 10;
+    background-color: var(--color-secondary-dark);
+}
+
+.info-block {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: var(--space-xs);
+  padding: calc(var(--space-xs) * 8) var(--space-xl);
+  z-index: 10;
+  height: 100%;
+  width: 100%;
 }

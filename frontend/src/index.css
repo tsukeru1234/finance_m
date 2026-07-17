@@ -1,21 +1,22 @@
-
 @font-face {
   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
   font-family: "Comic Relief";
   font-style: normal;
   font-weight: 400;
-  src: url("./fonts/comic-relief-v2-cyrillic_latin-regular.woff2")
+  src: url("/fonts/comic-relief-v2-cyrillic_latin-regular.woff2")
     format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 :root {
   /* ?Color */
   --color-primary: #e2e1f7;
-  --color-secondary-light: #9ab7dd;
-  --color-secondary-dark: #0a1931;
-  --color-accent-light: #377ca4;
-  --color-accent-dark: #1a3d63;
-  --color-sematic-bad: #c40100;
+  --color-secondary-light: #c0d3ed;
+  --color-secondary-dark: #1f4e94;
+  --color-accent-light: #489ac7;
+  --color-accent-dark: #2363a8;
+  --color-neutral: #2e466b;
+  --color-sematic-bad-light: #d61f1f;
+  --color-sematic-good-light: #17b619;
 
   /* ?Font */
   --font-small: 24px;
@@ -56,7 +57,7 @@ textarea {
   }
 }
 
-.error-massage{
+.error-massage {
   color: var(--color-sematic-bad);
   font-size: var(--font-small);
 }

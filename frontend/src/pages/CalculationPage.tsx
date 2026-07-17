@@ -1,16 +1,103 @@
+import List from "../features/List";
 import "./style/calculation-page.css";
 
+type calculationData = {
+  totalBudget: { value: number; lastValue: number };
+  totalSaved: number;
+  canExpenses: number;
+  saveMoney: { value: number; lastValue: number };
+};
+
+type category = {
+  id: string;
+  title: string;
+  cost: number;
+};
+
 const CalculationPage = () => {
+  const valueType = "₽";
+  const calculating: calculationData = {
+    totalBudget: { value: 70000, lastValue: 0.4 },
+    totalSaved: 20000,
+    canExpenses: 50000,
+    saveMoney: { value: 20000, lastValue: -2.0 },
+  };
+  const categoryList: category[] = [
+    { id: "food", title: "Food", cost: 500 },
+    { id: "sex", title: "Sex", cost: 9700 },
+  ];
+  const moneyToString = (money: number) => {
+    return new Intl.NumberFormat("en-US").format(money);
+  };
   return (
     <>
-      <div className="budget-box"></div>
-      <div className="can-spend-box"></div>
-      <div className="mouth-saved-box"></div>
-      <div className="total-saved-box"></div>
-      <div className="money-save-history-box"></div>
-      <div className="calendar-box"></div>
-      <div className="take-categories-box"></div>
-      <div className="spend-graph-box"></div>
+      <div className="budget-box">
+        <span className="box-title">Total budget</span>
+        <div className="money-box">
+          <span className="money-number">
+            {moneyToString(calculating.totalBudget.value)}
+            {valueType}
+          </span>
+          <span className={`money-last-mouth-percent ${calculating.totalBudget.lastValue > 0 ? "money-last-mouth-percent-good" : "money-last-mouth-percent-bad"}`}>
+            {calculating.totalBudget.lastValue}% from last mouth
+          </span>
+        </div>
+      </div>
+      <div className="can-spend-box">
+        <span className="box-title">Can expenses</span>
+        <div className="money-box">
+          <span className="money-number">
+            {moneyToString(calculating.canExpenses)}
+            {valueType}
+          </span>
+          {/* <span className="money-last-mouth-percent">0,00% from last mouth</span> */}
+        </div>
+      </div>
+      <div className="mouth-saved-box">
+        <span className="box-title">Want save</span>
+        <div className="money-box">
+          <span className="money-number">
+            {moneyToString(calculating.saveMoney.value)}
+            {valueType}
+          </span>
+          <span className={`money-last-mouth-percent ${calculating.saveMoney.lastValue > 0 ? "money-last-mouth-percent-good" : "money-last-mouth-percent-bad"}`}>
+            {calculating.saveMoney.lastValue}% from last mouth
+          </span>
+          {/* <span className="money-last-mouth-percent">0,00% from last mouth</span> */}
+        </div>
+      </div>
+      <div className="total-saved-box">
+        <span className="box-title">Total saved</span>
+        <div className="money-box">
+          <span className="money-number">
+            {moneyToString(calculating.totalSaved)}
+            {valueType}
+          </span>
+        </div>
+      </div>
+      <div className="money-save-history-box">
+        <span>Save history</span>
+      </div>
+      <div className="calendar-box">
+        <span>Calendar</span>
+      </div>
+      <div className="take-categories-box">
+        <span className="box-title">Choose categories</span>
+        <div className="categories-list">
+          <List
+            data={categoryList}
+            render={(item: category) => (
+              <div className="category-box">
+                <span className="category-title">{item.title}</span>
+                <span className="category-number">{moneyToString(item.cost)} {valueType}</span>
+              </div>
+            )}
+          ></List>
+        </div>
+      </div>
+      <div className="spend-graph-box">
+        <span>Expenses graph</span>
+      </div>
     </>
   );
 };
