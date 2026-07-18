@@ -1,3 +1,4 @@
+import SaveMoneyGraph from "../features/history/save-money/SaveMoneyGraph";
 import List from "../features/List";
 import "./style/calculation-page.css";
 
@@ -14,17 +15,30 @@ type category = {
   cost: number;
 };
 
+export type saveHistory = {
+  date: string;
+  value: number;
+};
+
 const CalculationPage = () => {
   const valueType = "₽";
   const calculating: calculationData = {
-    totalBudget: { value: 70000, lastValue: 0.4 },
+    totalBudget: { value: 70000, lastValue: 0.0 },
     totalSaved: 20000,
     canExpenses: 50000,
-    saveMoney: { value: 20000, lastValue: -2.0 },
+    saveMoney: { value: 20000, lastValue: 100.0 },
   };
   const categoryList: category[] = [
     { id: "food", title: "Food", cost: 500 },
-    { id: "sex", title: "Sex", cost: 9700 },
+    { id: "sex", title: "Sex", cost: 9500 },
+  ];
+  const historySave: saveHistory[] = [
+    { date: "08-06-2025", value: 10000 },
+    { date: "08-07-2025", value: 30000 },
+    { date: "08-08-2025", value: 10000 },
+    { date: "08-09-2025", value: 50000 },
+    { date: "08-10-2025", value: 10000 },
+    { date: "08-11-2025", value: 100000 },
   ];
   const moneyToString = (money: number) => {
     return new Intl.NumberFormat("en-US").format(money);
@@ -32,14 +46,21 @@ const CalculationPage = () => {
   return (
     <>
       <div className="budget-box">
-        <span className="box-title">Total budget</span>
+        <span className="box-title">Mouth budget</span>
         <div className="money-box">
           <span className="money-number">
             {moneyToString(calculating.totalBudget.value)}
             {valueType}
           </span>
-          <span className={`money-last-mouth-percent ${calculating.totalBudget.lastValue > 0 ? "money-last-mouth-percent-good" : "money-last-mouth-percent-bad"}`}>
-            {calculating.totalBudget.lastValue}% from last mouth
+          <span
+            className={`money-last-mouth-percent ${calculating.totalBudget.lastValue > 0 ? "money-last-mouth-percent-good" : calculating.totalBudget.lastValue < 0 ? "money-last-mouth-percent-bad" : ""}`}
+          >
+            {calculating.totalBudget.lastValue > 0
+              ? "+"
+              : calculating.totalBudget.lastValue < 0
+                ? "+"
+                : ""}{" "}
+            {calculating.totalBudget.lastValue.toFixed(2)}% from last mouth
           </span>
         </div>
       </div>
@@ -60,8 +81,15 @@ const CalculationPage = () => {
             {moneyToString(calculating.saveMoney.value)}
             {valueType}
           </span>
-          <span className={`money-last-mouth-percent ${calculating.saveMoney.lastValue > 0 ? "money-last-mouth-percent-good" : "money-last-mouth-percent-bad"}`}>
-            {calculating.saveMoney.lastValue}% from last mouth
+          <span
+            className={`money-last-mouth-percent ${calculating.saveMoney.lastValue > 0 ? "money-last-mouth-percent-good" : calculating.saveMoney.lastValue < 0 ? "money-last-mouth-percent-bad" : ""}`}
+          >
+            {calculating.saveMoney.lastValue > 0
+              ? "+"
+              : calculating.saveMoney.lastValue < 0
+                ? "+"
+                : ""}{" "}
+            {calculating.saveMoney.lastValue.toFixed(2)}% from last mouth
           </span>
           {/* <span className="money-last-mouth-percent">0,00% from last mouth</span> */}
         </div>
@@ -77,6 +105,7 @@ const CalculationPage = () => {
       </div>
       <div className="money-save-history-box">
         <span>Save history</span>
+        <SaveMoneyGraph data={historySave} />
       </div>
       <div className="calendar-box">
         <span>Calendar</span>
@@ -89,7 +118,9 @@ const CalculationPage = () => {
             render={(item: category) => (
               <div className="category-box">
                 <span className="category-title">{item.title}</span>
-                <span className="category-number">{moneyToString(item.cost)} {valueType}</span>
+                <span className="category-number">
+                  {moneyToString(item.cost)} {valueType}
+                </span>
               </div>
             )}
           ></List>

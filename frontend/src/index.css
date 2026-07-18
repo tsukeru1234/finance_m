@@ -25,6 +25,8 @@
   --small-text-letter-spacing: 0.01em;
   --medium-text-letter-spacing: -0.02em;
   --large-text-letter-spacing: 0.025em;
+  --font-graph-small: 8px;
+  --font-graph-medium: 16px;
 
   /* ?Border */
   --border-xs: 1px;
