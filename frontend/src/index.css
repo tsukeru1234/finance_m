@@ -14,39 +14,105 @@
   --color-secondary-dark: #1f4e94;
   --color-accent-light: #489ac7;
   --color-accent-dark: #2363a8;
-  --color-neutral: #2e466b;
+  --color-neutral-dark: #2e466b;
+  --color-neutral-light: #c4d1e3;
   --color-sematic-bad-light: #d61f1f;
   --color-sematic-good-light: #17b619;
 
-  /* ?Font */
-  --font-small: 24px;
-  --font-medium: 32px;
-  --font-large: 48px;
-  --small-text-letter-spacing: 0.01em;
-  --medium-text-letter-spacing: -0.02em;
-  --large-text-letter-spacing: 0.025em;
-  --font-graph-small: 8px;
-  --font-graph-medium: 16px;
-
-  /* ?Border */
-  --border-xs: 1px;
-  --border-md: 2px;
-  --border-lg: 4px;
-
-  /* ?Space */
-  --space-xs: 8px;
-  --space-md: 16px;
-  --space-lg: 24px;
-  --space-xl: 32px;
-  --space-2xl: 40px;
-  --space-3xl: 56px;
-
   background: var(--color-primary);
+}
+
+@media (width >= 1024px) {
+  :root {
+    --font-small: 18px;
+    --font-medium: 24px;
+    --font-large: 36px;
+    --small-text-letter-spacing: 0.01em;
+    --medium-text-letter-spacing: -0.02em;
+    --large-text-letter-spacing: 0.025em;
+    --font-graph-small: 6px;
+    --font-graph-medium: 12px;
+
+    /* ?Border */
+    --border-xs: 1px;
+    --border-md: 2px;
+    --border-lg: 3px;
+
+    /* ?Space */
+    --space-xs: 6px;
+    --space-md: 12px;
+    --space-lg: 18px;
+    --space-xl: 24px;
+    --space-2xl: 30px;
+    --space-3xl: 36px;
+  }
+}
+
+@media (width >= 1200px) {
+  :root {
+    --font-small: 18px;
+    --font-medium: 24px;
+    --font-large: 36px;
+    --small-text-letter-spacing: 0.01em;
+    --medium-text-letter-spacing: -0.02em;
+    --large-text-letter-spacing: 0.025em;
+    --font-graph-small: 6px;
+    --font-graph-medium: 12px;
+
+    /* ?Border */
+    --border-xs: 1px;
+    --border-md: 2px;
+    --border-lg: 3px;
+
+    /* ?Space */
+    --space-xs: 6px;
+    --space-md: 12px;
+    --space-lg: 18px;
+    --space-xl: 24px;
+    --space-2xl: 30px;
+    --space-3xl: 36px;
+  }
+}
+
+@media (width >= 1800px) {
+  :root {
+    /* ?Font */
+    --font-small: 24px;
+    --font-medium: 32px;
+    --font-large: 48px;
+    --small-text-letter-spacing: 0.01em;
+    --medium-text-letter-spacing: -0.02em;
+    --large-text-letter-spacing: 0.025em;
+    --font-graph-small: 8px;
+    --font-graph-medium: 16px;
+
+    /* ?Border */
+    --border-xs: 1px;
+    --border-md: 2px;
+    --border-lg: 4px;
+
+    /* ?Space */
+    --space-xs: 8px;
+    --space-md: 16px;
+    --space-lg: 24px;
+    --space-xl: 32px;
+    --space-2xl: 40px;
+    --space-3xl: 56px;
+  }
 }
 
 body {
   font-family: "Comic Relief", serif;
   margin: 0;
+  min-width: 0;
+  min-height: 0;
+  max-width: 100vw;
+  max-height: 100vh;
+}
+
+#root {
+  max-width: 100%;
+  max-height: 100%;
 }
 
 textarea {
@@ -62,4 +128,8 @@ textarea {
 .error-massage {
   color: var(--color-sematic-bad);
   font-size: var(--font-small);
+}
+
+.capitalize {
+  text-transform: capitalize;
 }

@@ -1,0 +1,53 @@
+.money-main-box {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding: var(--space-xl) var(--space-md);
+  background-color: var(--color-primary);
+  border-radius: var(--space-lg);
+  box-shadow: var(--border-md) var(--border-md) var(--border-lg)
+    color-mix(in srgb, var(--color-secondary-dark) 20%, transparent);
+}
+
+.money-box-title {
+  font-size: var(--font-medium);
+  letter-spacing: var(--medium-text-letter-spacing);
+  line-height: 100%;
+  color: var(--color-neutral-dark);
+}
+
+.money-box {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  color: var(--color-accent-dark);
+}
+
+.money-number {
+  font-size: var(--font-large);
+  letter-spacing: var(--large-text-letter-spacing);
+  line-height: 100%;
+  color: var(--color-secondary-dark);
+}
+
+.money-last-mouth-percent {
+  font-size: var(--font-small);
+  letter-spacing: var(--small-text-letter-spacing);
+  line-height: 100%;
+  color: var(--color-neutral-dark);
+}
+
+.money-last-mouth-percent-null-box {
+  height: var(--font-small);
+  width: 100%;
+}
+
+.money-last-mouth-percent-good {
+  color: var(--color-sematic-good-light);
+}
+
+.money-last-mouth-percent-bad {
+  color: var(--color-sematic-bad-light);
+}

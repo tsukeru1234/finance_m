@@ -7,16 +7,17 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
-import type { saveHistory } from "../../../pages/CalculationPage";
-import "./save-money-history-tooltip.css";
+import "./style//bar-tooltip-style.css"
 
-type saveMoneyGraphProps = {
-  data: saveHistory[];
+type SaveMoneyGraphProps<I extends {id: string}> = {
+  data: I[];
+  xAxis: keyof I;
+  yAxis: keyof I;
 };
 
-const SaveMoneyGraph = ({ data }: saveMoneyGraphProps) => {
+const BarChartComponent = <I extends {id: string}>({ data, xAxis, yAxis }: SaveMoneyGraphProps<I>) => {
   return (
-    <ResponsiveContainer width="100%">
+    <ResponsiveContainer width="100%" height="100%">
       <BarChart
         data={data}
         margin={{
@@ -29,7 +30,7 @@ const SaveMoneyGraph = ({ data }: saveMoneyGraphProps) => {
       >
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis
-          dataKey="date"
+          dataKey={xAxis as string}
           tick={{
             fill: "var(--color-accent-dark)",
             fontSize: "var(--font-graph-medium)",
@@ -37,6 +38,7 @@ const SaveMoneyGraph = ({ data }: saveMoneyGraphProps) => {
           }}
         />
         <YAxis
+          dataKey={yAxis as string}
           width="auto"
           tick={{
             fill: "var(--color-accent-dark)",
@@ -71,4 +73,4 @@ const SaveMoneyGraph = ({ data }: saveMoneyGraphProps) => {
   );
 };
 
-export default SaveMoneyGraph;
+export default BarChartComponent;

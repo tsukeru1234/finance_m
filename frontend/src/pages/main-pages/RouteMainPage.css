@@ -12,9 +12,11 @@
   box-sizing: border-box;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(4, 1fr);
+  grid-template-rows: repeat(4, minmax(0, 1fr));
+  min-height: 0;
+  overflow: hidden;
   gap: var(--space-xs);
-  padding: calc(var(--space-xs) * 8) var(--space-xl);
+  padding: var(--space-lg) var(--space-md);
 }
 
 .bg-main-page-top {
@@ -35,10 +37,11 @@
   background-color: var(--color-secondary-light);
 }
 
-.main-page-nav-box{
-    grid-column: 1 / 2;
-    z-index: 10;
-    background-color: var(--color-secondary-dark);
+.main-page-nav-box {
+  grid-column: 1 / 2;
+  height: 100%;
+  z-index: 10;
+  background-color: var(--color-secondary-dark);
 }
 
 .info-block {
