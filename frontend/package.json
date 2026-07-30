@@ -11,9 +11,11 @@
   },
   "dependencies": {
     "@tanstack/react-router": "^1.170.17",
+    "date-fns": "^4.4.0",
     "jotai": "^2.20.1",
     "react": "^19.2.7",
-    "react-dom": "^19.2.7"
+    "react-dom": "^19.2.7",
+    "recharts": "^3.9.2"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

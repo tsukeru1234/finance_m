@@ -1,13 +1,10 @@
-import CalculationPage from "./pages/CalculationPage";
-import Button from "./shared/ui/button/Button";
-import Input from "./shared/ui/input/Input";
+import { RouterProvider, createRouter } from "@tanstack/react-router";
+import { routeTree } from "./routeTree.gen";
+
+const router = createRouter({ routeTree });
 
 function App() {
-  return (
-    <>
-      <CalculationPage/>
-    </>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

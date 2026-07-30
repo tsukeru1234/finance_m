@@ -1,0 +1,126 @@
+.nav-bar-main-box {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xl);
+  width: 100%;
+  height: 100%;
+}
+
+.nav-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 20%;
+  gap: var(--space-md);
+}
+
+.nav-icon-title {
+  font-size: var(--font-large);
+  letter-spacing: var(--large-text-letter-spacing);
+  line-height: var(--font-large);
+  color: var(--color-primary);
+}
+
+.nav-bar-title-box {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+  opacity: 0;
+  font-size: var(--font-medium);
+  letter-spacing: var(--medium-text-letter-spacing);
+  margin: 0 0 0 var(--space-xl);
+}
+
+.nav-bar-title-box a {
+  text-decoration: none;
+  font-size: var(--font-medium);
+  line-height: calc(var(--font-medium) + var(--space-md));
+  letter-spacing: var(--medium-text-letter-spacing);
+}
+
+.nav-bar-title {
+  margin: 0;
+  color: transparent;
+  transition: margin 1250ms ease-in-out, color 1350ms ease-in-out;
+}
+
+.nav-bar-title-non-select {
+  color: var(--color-primary);
+}
+
+.nav-bar-title-select {
+  margin: 0 0 0 var(--space-md);
+  color: var(--color-secondary-dark);
+  z-index: 1;
+}
+
+.nav-bar-select-box {
+  box-sizing: border-box;
+  position: absolute;
+  display: flex;
+  justify-content: end;
+  right: 0;
+  width: 100%;
+  height: calc(var(--font-medium) + var(--space-md));
+  transition: all 250ms ease-in-out 500ms;
+  z-index: 0;
+}
+
+
+.nav-bar-select-calculation {
+  margin-top: 0;
+}
+
+.nav-bar-select-categories {
+  margin-top: calc(var(--font-medium) + var(--space-md) + var(--space-xl));
+}
+
+.nav-bar-select-calendar {
+  margin-top: calc(
+    var(--font-medium) + var(--space-md) * 2 + var(--space-xl) * 3
+  );
+}
+
+.nav-bar-select-bg {
+  width: 100%;
+  height: 100%;
+  border-radius: 999px 0 0 999px;
+  background-color: var(--color-secondary-light);
+}
+
+.nav-bar-animation {
+  animation: nav-bar-animation 1350ms ease-in-out 10ms forwards;
+}
+
+@keyframes nav-bar-animation {
+  0% {
+    width: 100%;
+  }
+
+  50% {
+    width: calc(var(--space-xs) * 3);
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes hide-animation {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.hide-animation {
+  animation: hide-animation 500ms ease-in 600ms forwards;
+}

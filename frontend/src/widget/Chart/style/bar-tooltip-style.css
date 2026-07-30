@@ -1,0 +1,10 @@
+.tooltip-wrapped-box-bar {
+    padding: var(--space-xs) var(--space-md) !important;
+    background-color: var(--color-secondary-light) !important;
+}
+
+.tooltip-content-bar-label {
+    color: var(--color-secondary-dark) !important;
+    font-size: var(--font-small);
+    letter-spacing: var(--small-text-letter-spacing);
+}

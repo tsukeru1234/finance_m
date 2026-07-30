@@ -1,14 +1,11 @@
-import React from 'react'
-import './index.css'
-import ReactDOM from 'react-dom/client'
-import { RouterProvider, createRouter } from '@tanstack/react-router'
-import { routeTree } from './routeTree.gen' // Файл создается автоматически при запуске npm run dev
+import React from "react";
+import "./index.css";
+import ReactDOM from "react-dom/client";
+import App from "./App";
 
-const router = createRouter({ routeTree })
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <App />
   </React.StrictMode>,
-)
-
+);

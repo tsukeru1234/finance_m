@@ -1,0 +1,26 @@
+.save-history-main-box {
+    box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding: var(--space-lg) var(--space-md);
+  background-color: var(--color-primary);
+  border-radius: var(--space-lg);
+  box-shadow: var(--border-md) var(--border-md) var(--border-lg)
+    color-mix(in srgb, var(--color-secondary-dark) 20%, transparent);
+}
+
+.money-save-history-title {
+  font-size: var(--font-medium);
+  letter-spacing: var(--small-text-letter-spacing);
+  line-height: 100%;
+  color: var(--color-neutral-dark);
+}
+
+.money-save-history-graph-box {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding: var(--space-lg) var(--space-xs) 0 var(--space-xs);
+}

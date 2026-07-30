@@ -1,49 +1,118 @@
-
 @font-face {
   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
   font-family: "Comic Relief";
   font-style: normal;
   font-weight: 400;
-  src: url("./fonts/comic-relief-v2-cyrillic_latin-regular.woff2")
+  src: url("/fonts/comic-relief-v2-cyrillic_latin-regular.woff2")
     format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 :root {
   /* ?Color */
   --color-primary: #e2e1f7;
-  --color-secondary-light: #9ab7dd;
-  --color-secondary-dark: #0a1931;
-  --color-accent-light: #377ca4;
-  --color-accent-dark: #1a3d63;
-  --color-sematic-bad: #c40100;
-
-  /* ?Font */
-  --font-small: 24px;
-  --font-medium: 32px;
-  --font-large: 48px;
-  --small-text-letter-spacing: 0.01em;
-  --medium-text-letter-spacing: -0.02em;
-  --large-text-letter-spacing: 0.025em;
-
-  /* ?Border */
-  --border-xs: 1px;
-  --border-md: 2px;
-  --border-lg: 4px;
-
-  /* ?Space */
-  --space-xs: 8px;
-  --space-md: 16px;
-  --space-lg: 24px;
-  --space-xl: 32px;
-  --space-2xl: 40px;
-  --space-3xl: 56px;
+  --color-secondary-light: #c0d3ed;
+  --color-secondary-dark: #1f4e94;
+  --color-accent-light: #489ac7;
+  --color-accent-dark: #2363a8;
+  --color-neutral-dark: #2e466b;
+  --color-neutral-light: #c4d1e3;
+  --color-sematic-bad-light: #d61f1f;
+  --color-sematic-good-light: #17b619;
 
   background: var(--color-primary);
+}
+
+@media (width >= 1024px) {
+  :root {
+    --font-small: 18px;
+    --font-medium: 24px;
+    --font-large: 36px;
+    --small-text-letter-spacing: 0.01em;
+    --medium-text-letter-spacing: -0.02em;
+    --large-text-letter-spacing: 0.025em;
+    --font-graph-small: 6px;
+    --font-graph-medium: 12px;
+
+    /* ?Border */
+    --border-xs: 1px;
+    --border-md: 2px;
+    --border-lg: 3px;
+
+    /* ?Space */
+    --space-xs: 6px;
+    --space-md: 12px;
+    --space-lg: 18px;
+    --space-xl: 24px;
+    --space-2xl: 30px;
+    --space-3xl: 36px;
+  }
+}
+
+@media (width >= 1200px) {
+  :root {
+    --font-small: 18px;
+    --font-medium: 24px;
+    --font-large: 36px;
+    --small-text-letter-spacing: 0.01em;
+    --medium-text-letter-spacing: -0.02em;
+    --large-text-letter-spacing: 0.025em;
+    --font-graph-small: 6px;
+    --font-graph-medium: 12px;
+
+    /* ?Border */
+    --border-xs: 1px;
+    --border-md: 2px;
+    --border-lg: 3px;
+
+    /* ?Space */
+    --space-xs: 6px;
+    --space-md: 12px;
+    --space-lg: 18px;
+    --space-xl: 24px;
+    --space-2xl: 30px;
+    --space-3xl: 36px;
+  }
+}
+
+@media (width >= 1800px) {
+  :root {
+    /* ?Font */
+    --font-small: 24px;
+    --font-medium: 32px;
+    --font-large: 48px;
+    --small-text-letter-spacing: 0.01em;
+    --medium-text-letter-spacing: -0.02em;
+    --large-text-letter-spacing: 0.025em;
+    --font-graph-small: 8px;
+    --font-graph-medium: 16px;
+
+    /* ?Border */
+    --border-xs: 1px;
+    --border-md: 2px;
+    --border-lg: 4px;
+
+    /* ?Space */
+    --space-xs: 8px;
+    --space-md: 16px;
+    --space-lg: 24px;
+    --space-xl: 32px;
+    --space-2xl: 40px;
+    --space-3xl: 56px;
+  }
 }
 
 body {
   font-family: "Comic Relief", serif;
   margin: 0;
+  min-width: 0;
+  min-height: 0;
+  max-width: 100vw;
+  max-height: 100vh;
+}
+
+#root {
+  max-width: 100%;
+  max-height: 100%;
 }
 
 textarea {
@@ -56,7 +125,11 @@ textarea {
   }
 }
 
-.error-massage{
+.error-massage {
   color: var(--color-sematic-bad);
   font-size: var(--font-small);
+}
+
+.capitalize {
+  text-transform: capitalize;
 }
