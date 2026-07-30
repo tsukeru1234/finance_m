@@ -9,7 +9,7 @@ import {
   getDay,
 } from "date-fns";
 import { ru } from "date-fns/locale";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./style/mini-calendar.css";
 import Button from "../../shared/ui/button/Button";
 
@@ -39,6 +39,19 @@ const MiniCalendar = ({ dates }: MiniCalendarProps) => {
       console.log(`Кликнули на обычный день: ${dateStr}`);
     }
   };
+
+  const startDay = () => {
+    const today = new Date().toISOString().split('T')[0]
+    if (dates[today]) {
+      dates[today].action();
+    } else {
+      console.log("обычный день")
+    }
+  }
+
+  useEffect(() => {
+    startDay()
+  }, [])
 
   return (
     <div className="mini-calendar-main-box">
