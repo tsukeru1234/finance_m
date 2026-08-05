@@ -1,3 +1,4 @@
+
 export type calculationData = {
   totalBudget: { value: number; lastValue: number };
   totalSaved: number;
@@ -5,12 +6,6 @@ export type calculationData = {
   saveMoney: { value: number; lastValue: number };
 };
 
-export type category = {
-  id: string;
-  title: string;
-  cost: number;
-  fill: string;
-};
 
 export type saveHistory = {
   id: string;
@@ -18,12 +13,6 @@ export type saveHistory = {
   value: number;
 };
 
-export const categoryList: category[] = [
-  { id: "food", title: "Food", cost: 800, fill: "#17b619" },
-  { id: "sex", title: "Sex", cost: 600, fill: "#d61f1f" },
-  { id: "don't now", title: "Don't now", cost: 2000, fill: "#ba19eb" },
-  { id: "hex", title: "Hex", cost: 7200, fill: "#1fd6c7" },
-];
 export const historySave: saveHistory[] = [
   { id: "1", date: "08-06-2025", value: 10000 },
   { id: "2", date: "08-07-2025", value: 30000 },

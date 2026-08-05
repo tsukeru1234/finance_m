@@ -1,5 +1,5 @@
 import BarChartComponent from "../../../../../widget/Chart/BarChartComponent";
-import type { saveHistory } from "../mouth-budget-widget/test-data";
+import type { saveHistory } from "../../../test-data";
 import "./save-history-widget.css";
 
 type SaveHistoryWidgetProps = {

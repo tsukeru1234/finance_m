@@ -3,7 +3,7 @@ import List from "../../../../../features/List";
 import { moneyToString } from "../../model/util";
 import "./coose-category-widget.css";
 import { moneyType } from "../../model/data";
-import type { category } from "../mouth-budget-widget/test-data";
+import type { category } from "../../../test-data";
 
 type ChooseCategoryWidgetProps = {
   categoryList: category[];
