@@ -1,14 +1,21 @@
 import { useAtomValue, useSetAtom } from "jotai";
 import List from "../../../features/List";
-import { activeCategoryList, inactiveCategoryList, refreshCategoryStatus, type category } from "../test-categories-data";
+import {
+  activeCategoryList,
+  inactiveCategoryList,
+  refreshCategoryStatus,
+  type category,
+} from "../test-categories-data";
 import "./categories-page.css";
 
 const CategoriesPage = () => {
   const categories = useAtomValue(activeCategoryList);
-  const inactiveCategories = useAtomValue(inactiveCategoryList)
-  const updateStatus = useSetAtom(refreshCategoryStatus)
+  const inactiveCategories = useAtomValue(inactiveCategoryList);
+  const updateStatus = useSetAtom(refreshCategoryStatus);
   const activeSorted = [...categories].sort((a, b) => a.priority - b.priority);
-  const inactiveSorted = [...inactiveCategories].sort((a, b) => a.priority - b.priority);
+  const inactiveSorted = [...inactiveCategories].sort(
+    (a, b) => a.priority - b.priority,
+  );
   return (
     <>
       <div className="active-categories">
@@ -19,15 +26,28 @@ const CategoriesPage = () => {
           <List
             data={activeSorted}
             render={(item: category) => (
-              <div
-                onClick={() =>updateStatus(item.id, "active")}
+              <button
+                onClick={() => updateStatus(item.id, "active")}
                 className="active-category-list-item"
                 style={
                   {
                     "--color-category-fill": item.fill,
                   } as React.CSSProperties
                 }
-              ></div>
+              >
+                <div className="active-category-list-item-line"></div>
+                <div className="active-category-list-item-info-block">
+                  <span className="active-category-list-item-title">
+                    {item.title}
+                  </span>
+                  <span className="active-category-list-item-cost">
+                    {item.cost}
+                  </span>
+                  <span className="active-category-list-item-priority">
+                    {item.priority}
+                  </span>
+                </div>
+              </button>
             )}
           />
         </div>
@@ -38,8 +58,8 @@ const CategoriesPage = () => {
           <List
             data={inactiveSorted}
             render={(item: category) => (
-              <div
-                onClick={() =>updateStatus(item.id, "inactive")}
+              <button
+                onClick={() => updateStatus(item.id, "inactive")}
                 className="my-category-list-item"
                 style={
                   {
@@ -54,8 +74,8 @@ const CategoriesPage = () => {
                 <span className="my-category-list-item-priority">
                   {item.priority}
                 </span>
-                <div className="my-category-list-item-color-line"></div>
-              </div>
+                <div className="my-category-list-item-color-line"><span className="my-category-list-item-color-line-hover-title">activate</span></div>
+              </button>
             )}
           />
         </div>

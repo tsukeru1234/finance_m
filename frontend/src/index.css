@@ -22,6 +22,24 @@
   background: var(--color-primary);
 }
 
+@media (height <= 800px) {
+  :root {
+    --main-padding-y: 16px;
+  }
+}
+
+@media (height <= 1024px) {
+  :root {
+    --main-padding-y: 16px;
+  }
+}
+
+@media (height >= 1024px) {
+  :root {
+    --main-padding-y: 64px;
+  }
+}
+
 @media (width >= 1024px) {
   :root {
     --font-small: 18px;
@@ -45,6 +63,15 @@
     --space-xl: 24px;
     --space-2xl: 30px;
     --space-3xl: 36px;
+
+    /* ?Main-padding */
+    --main-padding-x: 24px;
+  }
+}
+
+@media (height >= 1200px) {
+  :root {
+    --main-padding-y: 10px;
   }
 }
 
@@ -71,10 +98,13 @@
     --space-xl: 24px;
     --space-2xl: 30px;
     --space-3xl: 36px;
+
+    /* ?Main-padding */
+    --main-padding-x: 32px;
   }
 }
 
-@media (width >= 1800px) {
+@media (width >= 1500px) {
   :root {
     /* ?Font */
     --font-small: 24px;
@@ -98,6 +128,9 @@
     --space-xl: 32px;
     --space-2xl: 40px;
     --space-3xl: 56px;
+
+    /* ?Main-padding */
+    --main-padding-x: 32px;
   }
 }
 
@@ -136,4 +169,16 @@ textarea {
 
 .capitalize {
   text-transform: capitalize;
+}
+
+
+button {
+  display: block;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  cursor: pointer;
 }

@@ -16,7 +16,7 @@
   min-height: 0;
   overflow: hidden;
   gap: var(--space-xs);
-  padding: var(--space-lg) var(--space-md);
+  padding: var(--main-padding-y) var(--main-padding-x);
 }
 
 .bg-main-page-top {
