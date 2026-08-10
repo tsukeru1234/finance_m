@@ -2,16 +2,15 @@ import "./calculation-page.css";
 import { useState } from "react";
 import MoneyWidget from "./ui/mouth-budget-widget/MoneyWidget";
 import MiniCalendar from "../../../widget/calendar/MiniCalendar";
-import {
-  categoryList,
-  historySave,
-  type calculationData,
-} from "./ui/mouth-budget-widget/test-data";
 import ChooseCategoryWidget from "./ui/choose-category-widget/ChooseCategoryWidget";
 import SaveHistoryWidget from "./ui/save-history-widget/SaveHistoryWidget";
 import SpendGraphWidget from "./ui/spend-graph-widget/SpendGraphWidget";
+import { useAtomValue } from "jotai";
+import { activeCategoryList } from "../test-categories-data";
+import { historySave, type calculationData } from "../test-data";
 
 const CalculationPage = () => {
+  const categories = useAtomValue(activeCategoryList);
   const [calculating, setCalculating] = useState<calculationData>({
     totalBudget: { value: 70000, lastValue: 0.0 },
     totalSaved: 20000,
@@ -78,10 +77,10 @@ const CalculationPage = () => {
         <MiniCalendar dates={event} />
       </div>
       <div className="take-categories-box">
-        <ChooseCategoryWidget categoryList={categoryList} />
+        <ChooseCategoryWidget categoryList={categories} />
       </div>
       <div className="spend-graph-box">
-        <SpendGraphWidget categoryListData={categoryList} />
+        <SpendGraphWidget categoryListData={categories} />
       </div>
     </>
   );

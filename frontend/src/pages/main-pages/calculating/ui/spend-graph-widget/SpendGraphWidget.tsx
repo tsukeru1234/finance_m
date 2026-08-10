@@ -1,5 +1,5 @@
 import PieChartComponent from "../../../../../widget/Chart/PieChartComponent";
-import type { category } from "../mouth-budget-widget/test-data";
+import type { category } from "../../../test-data";
 import "./spend-graph-widget.css";
 
 type SpendGraphWidgetProps = {

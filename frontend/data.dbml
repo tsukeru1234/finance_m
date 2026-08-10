@@ -1,0 +1,13 @@
+Table users {
+  id varchar [primary key]
+}
+
+Table categories {
+  id varchar [primary key] 
+  user_id varchar [ref: > users.id]
+  title varchar(50) [not null]
+  priority int [not null]
+  const int [not null]
+  fill varchar(16) [not null]
+  status boolean
+}

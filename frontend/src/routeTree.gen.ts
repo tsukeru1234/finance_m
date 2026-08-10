@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as MainPagesRouteImport } from './routes/main-pages'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as MainPagesCategoriesRouteImport } from './routes/main-pages.categories'
 import { Route as MainPagesCalculationRouteImport } from './routes/main-pages.calculation'
 
 const MainPagesRoute = MainPagesRouteImport.update({
@@ -23,6 +24,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MainPagesCategoriesRoute = MainPagesCategoriesRouteImport.update({
+  id: '/categories',
+  path: '/categories',
+  getParentRoute: () => MainPagesRoute,
+} as any)
 const MainPagesCalculationRoute = MainPagesCalculationRouteImport.update({
   id: '/calculation',
   path: '/calculation',
@@ -33,24 +39,33 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/main-pages': typeof MainPagesRouteWithChildren
   '/main-pages/calculation': typeof MainPagesCalculationRoute
+  '/main-pages/categories': typeof MainPagesCategoriesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/main-pages': typeof MainPagesRouteWithChildren
   '/main-pages/calculation': typeof MainPagesCalculationRoute
+  '/main-pages/categories': typeof MainPagesCategoriesRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/main-pages': typeof MainPagesRouteWithChildren
   '/main-pages/calculation': typeof MainPagesCalculationRoute
+  '/main-pages/categories': typeof MainPagesCategoriesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/main-pages' | '/main-pages/calculation'
+  fullPaths:
+    '/' | '/main-pages' | '/main-pages/calculation' | '/main-pages/categories'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/main-pages' | '/main-pages/calculation'
-  id: '__root__' | '/' | '/main-pages' | '/main-pages/calculation'
+  to: '/' | '/main-pages' | '/main-pages/calculation' | '/main-pages/categories'
+  id:
+    | '__root__'
+    | '/'
+    | '/main-pages'
+    | '/main-pages/calculation'
+    | '/main-pages/categories'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -74,6 +89,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/main-pages/categories': {
+      id: '/main-pages/categories'
+      path: '/categories'
+      fullPath: '/main-pages/categories'
+      preLoaderRoute: typeof MainPagesCategoriesRouteImport
+      parentRoute: typeof MainPagesRoute
+    }
     '/main-pages/calculation': {
       id: '/main-pages/calculation'
       path: '/calculation'
@@ -86,10 +108,12 @@ declare module '@tanstack/react-router' {
 
 interface MainPagesRouteChildren {
   MainPagesCalculationRoute: typeof MainPagesCalculationRoute
+  MainPagesCategoriesRoute: typeof MainPagesCategoriesRoute
 }
 
 const MainPagesRouteChildren: MainPagesRouteChildren = {
   MainPagesCalculationRoute: MainPagesCalculationRoute,
+  MainPagesCategoriesRoute: MainPagesCategoriesRoute,
 }
 
 const MainPagesRouteWithChildren = MainPagesRoute._addFileChildren(
