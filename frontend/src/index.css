@@ -182,3 +182,8 @@ button {
   font: inherit;
   cursor: pointer;
 }
+
+.none-link, .none-link:link, .none-link:visited, .none-link:hover, .none-link:active {
+  color: inherit;
+  text-decoration: none; 
+}

@@ -1,9 +1,11 @@
 import { useAtom } from "jotai";
 import List from "../../../../../features/List";
 import { moneyToString } from "../../model/util";
-import "./coose-category-widget.css";
+import "./choose-category-widget.css";
 import { moneyType } from "../../model/data";
-import type { category } from "../../../test-data";
+import type { category } from "../../../test-categories-data";
+import Button from "../../../../../shared/ui/button/Button";
+import { Link } from "@tanstack/react-router";
 
 type ChooseCategoryWidgetProps = {
   categoryList: category[];
@@ -26,6 +28,11 @@ const ChooseCategoryWidget = ({ categoryList }: ChooseCategoryWidgetProps) => {
             </div>
           )}
         ></List>
+      </div>
+      <div className="categories-widget-button-box">
+        <Button style="primary" size="small" type="button">
+          <Link from={"/"} to={"main-pages/categories"} className="none-link"><span>Redact my category</span></Link>
+        </Button>
       </div>
     </div>
   );

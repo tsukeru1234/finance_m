@@ -47,3 +47,7 @@
   letter-spacing: var(--small-text-letter-spacing);
   color: var(--color-accent-dark);
 }
+
+.categories-widget-button-box {
+  padding: 0 var(--space-xl);
+}
