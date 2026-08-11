@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     gap: var(--space-lg);
+    padding: 0 var(--space-xs);
     width: 100%;
 }
 
@@ -73,4 +74,9 @@
     height: var(--border-lg);
     border-radius: 100%;
     background-color: var(--color-accent-light);
+}
+
+.mini-calendar-button-box {
+    display: flex;
+    gap: var(--space-md);
 }

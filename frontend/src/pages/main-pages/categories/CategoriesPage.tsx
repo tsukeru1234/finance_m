@@ -6,7 +6,7 @@ import {
   refreshCategoryStatus,
   type category,
 } from "../test-categories-data";
-import "./categories-page.css";
+import "./style/categories-page.css";
 
 const CategoriesPage = () => {
   const categories = useAtomValue(activeCategoryList);

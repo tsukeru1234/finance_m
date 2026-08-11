@@ -1,0 +1,13 @@
+.calendar-page-main-box {
+  box-sizing: border-box;
+  grid-row: 1 / 5;
+  grid-column: 1/ 5;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  padding: var(--space-2xl) var(--space-lg);
+  border-radius: var(--space-lg);
+  background-color: var(--color-primary);
+  box-shadow: var(--border-md) var(--border-md) var(--border-lg)
+    color-mix(in srgb, var(--color-secondary-dark) 20%, transparent);
+}
