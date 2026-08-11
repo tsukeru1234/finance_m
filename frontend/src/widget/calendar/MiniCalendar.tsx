@@ -41,30 +41,42 @@ const MiniCalendar = ({ dates }: MiniCalendarProps) => {
   };
 
   const startDay = () => {
-    const today = new Date().toISOString().split('T')[0]
+    const today = new Date().toISOString().split("T")[0];
     if (dates[today]) {
       dates[today].action();
     } else {
-      console.log("обычный день")
+      console.log("обычный день");
     }
-  }
+  };
 
   useEffect(() => {
-    startDay()
-  }, [])
+    startDay();
+  }, []);
 
   return (
     <div className="mini-calendar-main-box">
       <div className="mini-calendar-next-prev-buttons-block">
-        <Button type="button" style="secondary" size="small" click={prevMonth}>
-          🠜
-        </Button>
         <span className="mouth-block capitalize">
           {format(currentMonth, "LLLL yyyy", { locale: ru })}
         </span>
-        <Button type="button" style="secondary" size="small" click={nextMonth}>
-          🠞
-        </Button>
+        <div className="mini-calendar-button-box">
+          <Button
+            type="button"
+            style="secondary"
+            size="small"
+            click={prevMonth}
+          >
+            🠜
+          </Button>
+          <Button
+            type="button"
+            style="secondary"
+            size="small"
+            click={nextMonth}
+          >
+            🠞
+          </Button>
+        </div>
       </div>
       <div>
         <div className="mini-calendar-week-box">
@@ -72,8 +84,6 @@ const MiniCalendar = ({ dates }: MiniCalendarProps) => {
             <div key={d}>{d}</div>
           ))}
         </div>
-  
-        {/* СЕТКА ДНЕЙ МЕСЯЦА */}
         <div className="mini-calendar-days-box">
           {Array.from({ length: emptyDaysCount }).map((_, index) => (
             <div key={`empty-${index}`} className="mini-calendar-day-empty" />
@@ -81,7 +91,7 @@ const MiniCalendar = ({ dates }: MiniCalendarProps) => {
           {daysInMonth.map((day) => {
             const dateStr = format(day, "yyyy-MM-dd");
             const hasEvent = !!dates[dateStr];
-  
+
             return (
               <button
                 key={day.toString()}
@@ -92,8 +102,6 @@ const MiniCalendar = ({ dates }: MiniCalendarProps) => {
                 `}
               >
                 {format(day, "d")}
-  
-                {/* Маленькая точка снизу, если на дату назначена функция */}
                 {hasEvent && <div className="mini-calendar-event"></div>}
               </button>
             );

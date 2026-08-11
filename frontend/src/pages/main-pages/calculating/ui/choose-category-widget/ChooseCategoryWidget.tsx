@@ -30,7 +30,7 @@ const ChooseCategoryWidget = ({ categoryList }: ChooseCategoryWidgetProps) => {
         ></List>
       </div>
       <div className="categories-widget-button-box">
-        <Button style="primary" size="small" type="button">
+        <Button style="secondary" size="small" type="button">
           <Link from={"/"} to={"main-pages/categories"} className="none-link"><span>Redact my category</span></Link>
         </Button>
       </div>

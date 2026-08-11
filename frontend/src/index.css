@@ -55,6 +55,7 @@
     --border-xs: 1px;
     --border-md: 2px;
     --border-lg: 3px;
+    --border-xl: 4px;
 
     /* ?Space */
     --space-xs: 6px;
@@ -90,6 +91,7 @@
     --border-xs: 1px;
     --border-md: 2px;
     --border-lg: 3px;
+    --border-xl: 4px;
 
     /* ?Space */
     --space-xs: 6px;
@@ -120,6 +122,7 @@
     --border-xs: 1px;
     --border-md: 2px;
     --border-lg: 4px;
+    --border-xl: 5px;
 
     /* ?Space */
     --space-xs: 8px;

@@ -1,0 +1,106 @@
+.my-categories-list {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: var(--space-md);
+  min-height: 0;
+  height: 100%;
+  padding: var(--space-md);
+  border-radius: var(--space-md);
+  border: dashed color-mix(in srgb, var(--color-accent-dark) 5%, transparent)
+    var(--border-lg);
+  background-color: var(--color-secondary-light);
+}
+
+.my-category-list-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  width: 100%;
+  padding: var(--space-md) var(--space-md)
+    calc(var(--font-small) + var(--space-md)) var(--space-md);
+  border-radius: var(--space-md);
+  background-color: var(--color-primary);
+  box-shadow: var(--border-md) var(--border-md) var(--border-lg)
+    color-mix(in srgb, var(--color-secondary-dark) 20%, transparent);
+  transition: all 350ms ease-in-out 10ms;
+}
+
+.my-category-list-item:hover,
+.my-category-list-item:focus {
+  transform: scale(1.02);
+  box-shadow: var(--border-lg) var(--border-lg) var(--border-lg)
+    color-mix(in srgb, var(--color-secondary-dark) 20%, transparent);
+  outline: none;
+}
+
+.my-category-list-item-cost {
+  font-size: var(--font-medium);
+  letter-spacing: var(--medium-text-letter-spacing);
+  line-height: var(--font-medium);
+  color: var(--color-neutral-dark);
+}
+
+.my-category-list-item-title {
+  font-size: var(--font-large);
+  letter-spacing: var(--large-text-letter-spacing);
+  line-height: var(--font-large);
+  color: var(--color-accent-dark);
+  transition: all 350ms ease-in-out 0ms;
+}
+
+.my-category-list-item:hover .my-category-list-item-title,
+.my-category-list-item:focus .my-category-list-item-title {
+  color: var(--color-category-fill);
+  text-shadow: var(--border-xs) var(--border-md) var(--border-lg)
+    color-mix(in srgb, var(--color-category-fill) 30%, transparent);
+  transition: all 350ms ease-in-out 10ms;
+}
+
+.my-category-list-item-priority {
+  align-self: flex-end;
+  font-size: var(--font-small);
+  letter-spacing: var(--small-text-letter-spacing);
+  line-height: var(--font-small);
+  color: var(--color-neutral-dark);
+}
+
+.my-category-list-item-color-line {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(var(--font-small) + var(--space-xs));
+  border-radius: 0 0 var(--space-md) var(--space-md);
+  background-color: var(--color-category-fill);
+  transition: all 350ms ease-in-out 0ms;
+}
+
+.my-category-list-item-color-line-hover-title {
+  opacity: 0;
+  visibility: hidden;
+  font-size: var(--font-small);
+  letter-spacing: var(--small-text-letter-spacing);
+  line-height: var(--font-small);
+  color: var(--color-primary);
+  text-shadow: var(--border-md) var(--border-md) var(--border-md)
+    color-mix(in srgb, var(--color-primary) 20%, transparent);
+  transition: all 350ms ease-in-out 0ms;
+}
+
+.my-category-list-item:hover .my-category-list-item-color-line,
+.my-category-list-item:focus .my-category-list-item-color-line {
+  background-color: var(--color-sematic-good-light);
+  transition: all 350ms ease-in-out 10ms;
+}
+
+.my-category-list-item:hover .my-category-list-item-color-line-hover-title,
+.my-category-list-item:focus .my-category-list-item-color-line-hover-title {
+  opacity: 1;
+  visibility: visible;
+  transition: all 350ms ease-in-out 10ms;
+}
