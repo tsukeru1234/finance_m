@@ -42,6 +42,7 @@
 
 @media (width >= 1024px) {
   :root {
+    --font-extra-small: 12px;
     --font-small: 18px;
     --font-medium: 24px;
     --font-large: 36px;
@@ -78,6 +79,7 @@
 
 @media (width >= 1200px) {
   :root {
+    --font-extra-small: 12px;
     --font-small: 18px;
     --font-medium: 24px;
     --font-large: 36px;
@@ -109,6 +111,7 @@
 @media (width >= 1500px) {
   :root {
     /* ?Font */
+    --font-extra-small: 14px;
     --font-small: 24px;
     --font-medium: 32px;
     --font-large: 48px;
