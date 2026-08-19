@@ -35,17 +35,18 @@ const CategoriesPage = () => {
                   } as React.CSSProperties
                 }
               >
-                <div className="active-category-list-item-line"></div>
-                <div className="active-category-list-item-info-block">
-                  <span className="active-category-list-item-title">
-                    {item.title}
-                  </span>
-                  <span className="active-category-list-item-cost">
-                    {item.cost}
-                  </span>
-                  <span className="active-category-list-item-priority">
-                    {item.priority}
-                  </span>
+                <div className="active-category-list-item-line">
+                  <div className="active-category-list-item-info-block">
+                    <span className="active-category-list-item-title">
+                      {item.title}
+                    </span>
+                    <span className="active-category-list-item-cost">
+                      {item.cost}
+                    </span>
+                    <span className="active-category-list-item-priority">
+                      {item.priority}
+                    </span>
+                  </div>
                 </div>
               </button>
             )}
@@ -74,7 +75,11 @@ const CategoriesPage = () => {
                 <span className="my-category-list-item-priority">
                   {item.priority}
                 </span>
-                <div className="my-category-list-item-color-line"><span className="my-category-list-item-color-line-hover-title">activate</span></div>
+                <div className="my-category-list-item-color-line">
+                  <span className="my-category-list-item-color-line-hover-title">
+                    activate
+                  </span>
+                </div>
               </button>
             )}
           />

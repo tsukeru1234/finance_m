@@ -14,6 +14,7 @@ import { ru } from "date-fns/locale";
 import "./calendar.css";
 import Button from "../../../shared/ui/button/Button";
 import { sortedCalendarData } from "./calendar-data";
+import React from "react";
 
 const CalendarPage = () => {
   const [currentMonth, setCurrentMonth] = useState(new Date());
@@ -59,60 +60,72 @@ const CalendarPage = () => {
         ))}
       </div>
       <div className="calendar-mouth-box">
-        {Array.from({ length: emptyDaysCount }).map((_, index) => (
-          <div key={`empty-${index}`} className="mini-calendar-day-empty" />
-        ))}
-        {daysInMonth.map((day) => (
-          <div className="cost-events-box">
-            {sortedCalendarData.map((item, index) => {
-              const calendarDay = format(day, "yyyy-MM-dd");
-              const startEvent = format(item.start, "yyyy-MM-dd");
-              const endEvent = format(item.end, "yyyy-MM-dd");
-              return (
-                calendarDay >= startEvent &&
-                calendarDay <= endEvent && (
-                  <>
-                    <div
-                      id={`${calendarDay}`}
-                      key={`${item.title}-${index}`}
-                      className={`cost-event-${startEvent === endEvent ? "one-day" : calendarDay === startEvent ? "start" : calendarDay === endEvent ? "end" : "middle"}`}
-                      style={
-                        {
-                          "--color-category-fill": item.fill,
-                        } as React.CSSProperties
-                      }
-                    ></div>
-                    <div className="cost-event-hover-day-data-true">
-                      {calendarDay >= startEvent && calendarDay <= endEvent && (
-                        <div>{item.title}</div>
-                      )}
-                    </div>
-                  </>
-                )
-              );
-            })}
-            <div className="cost-event-hover-day-data-false">
-              <div>соси хуй 67 монстр</div>
-            </div>
-          </div>
-        ))}
         <div className="event-grid">
           {Array.from({ length: emptyDaysCount }).map((_, index) => (
             <div key={`empty-${index}`} className="mini-calendar-day-empty" />
           ))}
           {daysInMonth.map((day) => {
+            const calendarDay = format(day, "yyyy-MM-dd");
+
+            const activeEvents = sortedCalendarData.filter((item) => {
+              const startEvent = format(item.start, "yyyy-MM-dd");
+              const endEvent = format(item.end, "yyyy-MM-dd");
+              return calendarDay >= startEvent && calendarDay <= endEvent;
+            });
+
+            const hasEvents = activeEvents.length > 0;
+
             return (
-              <button key={day.toString()} className="calendar-day-box">
-                <span
-                  id={day.toISOString()}
-                  className={`calendar-day-number ${isToday(day) && "calendar-today-number"}`}
-                >
-                  {format(day, "d")}
-                </span>
+              <button className="cost-events-box">
+                {hasEvents &&
+                  activeEvents.map((item, index) => {
+                    const startEvent = format(item.start, "yyyy-MM-dd");
+                    const endEvent = format(item.end, "yyyy-MM-dd");
+                    return (
+                      <div
+                        key={`strip-${item.title}-${index}`}
+                        id={calendarDay}
+                        className={`cost-event-${startEvent === endEvent ? "one-day" : calendarDay === startEvent ? "start" : calendarDay === endEvent ? "end" : "middle"}`}
+                        style={
+                          {
+                            "--color-category-fill": item.fill,
+                          } as React.CSSProperties
+                        }
+                      />
+                    );
+                  })}
+                {hasEvents ? (
+                  <div className="cost-event-hover-day-data">
+                    {activeEvents.map((item, index) => (
+                      <span key={`hover-${item.title}-${index}`}>
+                        {item.title}
+                      </span>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="cost-event-hover-day-data">
+                    <span>Ordinary day</span>
+                  </div>
+                )}
               </button>
             );
           })}
         </div>
+        {Array.from({ length: emptyDaysCount }).map((_, index) => (
+          <div key={`empty-${index}`} className="mini-calendar-day-empty" />
+        ))}
+        {daysInMonth.map((day) => {
+          return (
+            <div key={day.toString()} className="calendar-day-box">
+              <span
+                id={day.toISOString()}
+                className={`calendar-day-number ${isToday(day) && "calendar-today-number"}`}
+              >
+                {format(day, "d")}
+              </span>
+            </div>
+          );
+        })}
       </div>
     </div>
   );

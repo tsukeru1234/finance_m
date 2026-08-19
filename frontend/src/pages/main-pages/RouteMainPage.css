@@ -14,9 +14,9 @@
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(4, minmax(0, 1fr));
   min-height: 0;
-  overflow: hidden;
   gap: var(--space-xs);
   padding: var(--main-padding-y) var(--main-padding-x);
+  z-index: 10;
 }
 
 .bg-main-page-top {
