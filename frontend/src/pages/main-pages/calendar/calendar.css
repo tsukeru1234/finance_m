@@ -14,7 +14,7 @@
 .calendar-mouth-button-box {
   display: flex;
   gap: var(--space-lg);
-} 
+}
 
 .calendar-arrow {
   padding: 0 var(--space-lg);
@@ -35,6 +35,7 @@
 }
 
 .calendar-mouth-box {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows: repeat(6, 1fr);
@@ -44,8 +45,8 @@
 }
 
 .calendar-day-box {
-   --pad-x: var(--space-md);
-   --pad-y: var(--space-xs);
+  --pad-x: var(--space-md);
+  --pad-y: var(--space-xs);
 
   box-sizing: border-box;
   position: relative;
@@ -53,6 +54,7 @@
   margin-right: calc(-1 * var(--border-md));
   margin-bottom: calc(-1 * var(--border-md));
   border: solid var(--border-md) var(--color-secondary-light);
+  z-index: 0;
 }
 
 .calendar-day-number {
@@ -71,4 +73,92 @@
   border-radius: var(--space-xs);
   background-color: var(--color-secondary-light);
   color: var(--color-accent-dark);
+}
+
+.event-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  grid-auto-flow: row dense;
+  width: 100%;
+  height: 100%;
+}
+
+.cost-events-box {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--border-md);
+  padding: var(--space-xs) 0 var(--space-2xl) 0;
+  z-index: 1;
+}
+
+.cost-event-start,
+.cost-event-middle,
+.cost-event-end {
+  width: 100%;
+  height: var(--space-md);
+  background-color: var(--color-category-fill);
+}
+
+.cost-event-start {
+  border-radius: var(--space-md) 0 0 var(--space-md);
+  margin-left: var(--space-md);
+  width: calc(100% - var(--space-md));
+}
+
+.cost-event-end {
+  border-radius: 0 var(--space-md) var(--space-md) 0;
+  margin-right: var(--space-md);
+  width: calc(100% - var(--space-md));
+}
+
+.cost-event-one-day {
+  height: var(--space-md);
+  width: calc(100% - (var(--space-md) * 2));
+  margin-left: var(--space-md);
+  border-radius: var(--space-md);
+  background-color: var(--color-category-fill);
+}
+
+.cost-event-hover-day-data {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: var(--border-lg);
+  visibility: hidden;
+  left: calc(-1 * (40% + var(--space-xl)));
+  width: 0;
+  height: 0;
+  padding: var(--space-xs);
+  border-radius: var(--space-xs);
+  opacity: 0;
+  background-color: var(--color-secondary-light);
+  box-shadow: var(--border-xs) var(--border-xs) var(--space-xs)
+    color-mix(in srgb, var(--color-accent-dark) 20%, transparent);
+  transition: opacity 600ms ease-in-out, width 400ms ease-in-out, height 400ms ease-in-out;
+}
+
+.cost-events-box:is(:hover, :focus) .cost-event-hover-day-data {
+  visibility: visible;
+  width: calc(var(--space-xl) * 5);
+  height: calc(var(--space-xs) * 12);
+  opacity: 1;
+}
+
+.cost-event-hover-day-data span {
+  opacity: 0;
+  font-size: var(--font-extra-small);
+  letter-spacing: var(--small-text-letter-spacing);
+  line-height: var(--font-extra-small);
+  color: var(--color-secondary-dark);
+  transition: all 0ms ease-in-out 0ms;
+}
+
+.cost-events-box:is(:hover, :focus) .cost-event-hover-day-data span{
+  opacity: 1;
+  transition: all 250ms ease-in-out 200ms;
 }
