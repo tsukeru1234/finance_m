@@ -4,6 +4,7 @@
     gap: var(--space-lg);
     padding: 0 var(--space-xs);
     width: 100%;
+    visibility: hidden;
 }
 
 .mouth-block {
@@ -78,5 +79,5 @@
 
 .mini-calendar-button-box {
     display: flex;
-    gap: var(--space-md);
+    gap: var(--space-xs);
 }

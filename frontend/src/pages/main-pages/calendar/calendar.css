@@ -130,9 +130,7 @@
   flex-direction: column;
   gap: var(--border-lg);
   visibility: hidden;
-  left: calc(-1 * (40% + var(--space-xl)));
-  width: 0;
-  height: 0;
+  inset: 0;
   padding: var(--space-xs);
   border-radius: var(--space-xs);
   opacity: 0;
@@ -144,8 +142,6 @@
 
 .cost-events-box:is(:hover, :focus) .cost-event-hover-day-data {
   visibility: visible;
-  width: calc(var(--space-xl) * 5);
-  height: calc(var(--space-xs) * 12);
   opacity: 1;
 }
 
