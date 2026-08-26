@@ -6,10 +6,7 @@
   height: 100%;
   min-height: 0;
   padding: var(--space-md);
-  background-color: var(--color-primary);
-  border-radius: var(--space-lg);
-  box-shadow: var(--border-md) var(--border-md) var(--border-lg)
-    color-mix(in srgb, var(--color-secondary-dark) 20%, transparent);
+  visibility: hidden;
 }
 
 .box-title {
@@ -49,5 +46,6 @@
 }
 
 .categories-widget-button-box {
-  padding: 0 var(--space-xl);
+  display: flex;
+  justify-content: center;
 }

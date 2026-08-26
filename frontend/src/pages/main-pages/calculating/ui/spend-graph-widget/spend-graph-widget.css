@@ -5,10 +5,7 @@
   justify-content: space-between;
   height: 100%;
   padding: var(--space-md);
-  background-color: var(--color-accent-dark);
-  border-radius: var(--space-lg);
-  box-shadow: var(--border-md) var(--border-md) var(--border-lg)
-    color-mix(in srgb, var(--color-secondary-dark) 20%, transparent);
+  visibility: hidden;
 }
 
 .spend-graph-title {

@@ -9,12 +9,13 @@ import { Link } from "@tanstack/react-router";
 
 type ChooseCategoryWidgetProps = {
   categoryList: category[];
+  navKey: boolean
 };
 
-const ChooseCategoryWidget = ({ categoryList }: ChooseCategoryWidgetProps) => {
+const ChooseCategoryWidget = ({ categoryList, navKey }: ChooseCategoryWidgetProps) => {
   const [valueType] = useAtom(moneyType);
   return (
-    <div className="choose-categories-main-box">
+    <div className="choose-categories-main-box nav-status-hide-page" key={navKey? "yes" : "no"}>
       <span className="box-title">Choose categories</span>
       <div className="categories-list">
         <List

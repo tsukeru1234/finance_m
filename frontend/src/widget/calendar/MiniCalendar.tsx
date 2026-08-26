@@ -14,10 +14,11 @@ import "./style/mini-calendar.css";
 import Button from "../../shared/ui/button/Button";
 
 export type MiniCalendarProps = {
-  dates: Record<string, { label: string; action: () => void }>;
+  dates: Record<string, { label: string; action: () => void }>
+  navKey: boolean;
 };
 
-const MiniCalendar = ({ dates }: MiniCalendarProps) => {
+const MiniCalendar = ({ dates, navKey }: MiniCalendarProps) => {
   const [currentMonth, setCurrentMonth] = useState(new Date());
 
   const monthStart = startOfMonth(currentMonth);
@@ -54,7 +55,7 @@ const MiniCalendar = ({ dates }: MiniCalendarProps) => {
   }, []);
 
   return (
-    <div className="mini-calendar-main-box">
+    <div className="mini-calendar-main-box nav-status-hide-page" key={navKey? "yes" : "no"}>
       <div className="mini-calendar-next-prev-buttons-block">
         <span className="mouth-block capitalize">
           {format(currentMonth, "LLLL yyyy", { locale: ru })}
@@ -66,7 +67,7 @@ const MiniCalendar = ({ dates }: MiniCalendarProps) => {
             size="small"
             click={prevMonth}
           >
-            🠜
+            {"<"}
           </Button>
           <Button
             type="button"
@@ -74,7 +75,7 @@ const MiniCalendar = ({ dates }: MiniCalendarProps) => {
             size="small"
             click={nextMonth}
           >
-            🠞
+            {">"}
           </Button>
         </div>
       </div>

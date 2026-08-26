@@ -40,7 +40,7 @@ const CalendarPage = () => {
             size="large"
             click={prevMonth}
           >
-            <span className="calendar-arrow">🠜</span>
+            <span className="calendar-arrow">{"<"}</span>
           </Button>
           <Button
             type="button"
@@ -48,7 +48,7 @@ const CalendarPage = () => {
             size="large"
             click={nextMonth}
           >
-            <span className="calendar-arrow">🠞</span>
+            <span className="calendar-arrow">{">"}</span>
           </Button>
         </div>
       </div>
@@ -65,12 +65,13 @@ const CalendarPage = () => {
             <div key={`empty-${index}`} className="mini-calendar-day-empty" />
           ))}
           {daysInMonth.map((day) => {
-            const calendarDay = format(day, "yyyy-MM-dd");
+            const calendarYMD = format(day, "yyyy-MM-dd");
+            const calendarDay = format(day, "d");
 
             const activeEvents = sortedCalendarData.filter((item) => {
               const startEvent = format(item.start, "yyyy-MM-dd");
               const endEvent = format(item.end, "yyyy-MM-dd");
-              return calendarDay >= startEvent && calendarDay <= endEvent;
+              return calendarYMD >= startEvent && calendarYMD <= endEvent;
             });
 
             const hasEvents = activeEvents.length > 0;
@@ -84,8 +85,8 @@ const CalendarPage = () => {
                     return (
                       <div
                         key={`strip-${item.title}-${index}`}
-                        id={calendarDay}
-                        className={`cost-event-${startEvent === endEvent ? "one-day" : calendarDay === startEvent ? "start" : calendarDay === endEvent ? "end" : "middle"}`}
+                        id={calendarYMD}
+                        className={`cost-event-${startEvent === endEvent ? "one-day" : calendarYMD === startEvent ? "start" : calendarYMD === endEvent ? "end" : "middle"}`}
                         style={
                           {
                             "--color-category-fill": item.fill,
@@ -97,14 +98,21 @@ const CalendarPage = () => {
                 {hasEvents ? (
                   <div className="cost-event-hover-day-data">
                     {activeEvents.map((item, index) => (
-                      <span key={`hover-${item.title}-${index}`}>
+                      <span
+                        key={`hover-${item.title}-${index}`}
+                        className="calendar-hover-event-name"
+                      >
                         {item.title}
                       </span>
                     ))}
+                    <span className="calendar-hover-day">{calendarDay}</span>
                   </div>
                 ) : (
                   <div className="cost-event-hover-day-data">
-                    <span>Ordinary day</span>
+                    <span className="calendar-hover-event-name">
+                      Ordinary day
+                    </span>
+                    <span className="calendar-hover-day">{calendarDay}</span>
                   </div>
                 )}
               </button>

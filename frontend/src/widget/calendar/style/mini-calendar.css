@@ -4,12 +4,12 @@
     gap: var(--space-lg);
     padding: 0 var(--space-xs);
     width: 100%;
+    visibility: hidden;
 }
 
 .mouth-block {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     font-size: var(--font-small);
     letter-spacing: var(--small-text-letter-spacing);
     color: var(--color-neutral-dark);
@@ -54,7 +54,7 @@
 }
 
 .mini-calendar-day:hover {
-    transform: scale(1.05);
+    transform: scale(1.1);
 }
 
 .mini-calendar-today {
@@ -78,5 +78,5 @@
 
 .mini-calendar-button-box {
     display: flex;
-    gap: var(--space-md);
+    gap: var(--space-xs);
 }

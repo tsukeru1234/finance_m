@@ -4,12 +4,12 @@
   background-color: transparent;
   border: solid var(--border-md) var(--color-accent-dark);
   color: var(--color-accent-dark);
-  transition: all 250ms ease-in-out;
+  transition: all 300ms ease-in-out 10ms;
 }
 
 .secondary-button:hover,
 .secondary-button:focus {
-  transform: scale(1.02);
+  transform: scale(1.1);
   border: solid var(--border-md) var(--color-accent-light);
   color: var(--color-accent-light);
 }

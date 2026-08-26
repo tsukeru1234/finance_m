@@ -4,6 +4,7 @@ import "./money-widget.css";
 import { moneyType } from "../../model/data";
 
 type MoneyWidgetProps = {
+  navKey: boolean;
   title: string;
   value: number;
   havLastValue: boolean;
@@ -15,10 +16,11 @@ const MoneyWidget = ({
   value,
   havLastValue,
   lastValue,
+  navKey,
 }: MoneyWidgetProps) => {
   const [valueType] = useAtom(moneyType);
   return (
-    <div className="money-main-box">
+    <div className="money-main-box nav-status-hide-page" key={navKey? "yes" : "no"}>
       <span className="money-box-title">{title}</span>
       <div className="money-box">
         <span className="money-number">

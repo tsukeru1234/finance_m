@@ -1,7 +1,10 @@
 import { Link, useLocation } from "@tanstack/react-router";
 import "./style/nav-bar-style.css";
+import { useAtom } from "jotai";
+import { navStatus } from "./model/storage";
 
 const NavBar = () => {
+  const [navS, setNavS] = useAtom(navStatus)
   const location = useLocation();
   const path = location.pathname;
   const selectBoxType = (path: string): string => {
@@ -12,12 +15,13 @@ const NavBar = () => {
   const pageStyle = selectBoxType(path);
   return (
     <div className="nav-bar-main-box">
-      <div className="nav-icon">
+      <button onClick={() => setNavS((prev) => !prev)} className={`nav-status-button ${navS && "nav-active-status-button"}`}>{navS ? ">" : "<"}</button>
+      <div className={`nav-icon ${!navS && "nav-bar-off"}`}>
         <span className="nav-icon-title">TRACK</span>
         <span className="nav-icon-title">YOUR</span>
         <span className="nav-icon-title">MONEY</span>
       </div>
-      <div className="nav-bar-title-box hide-animation">
+      <div className={`nav-bar-title-box ${!navS && "nav-bar-off"}`}>
         <Link
           from={"/"}
           to={"main-pages/calculation"}
@@ -51,9 +55,9 @@ const NavBar = () => {
         >
           Calendar
         </Link>
-        <div className={`nav-bar-select-box nav-bar-select-${pageStyle}`}>
+        <div className={`nav-bar-select-box nav-bar-select-${pageStyle} ${!navS && "nav-bar-off"}`}>
           <div
-            className="nav-bar-select-bg nav-bar-animation"
+            className={`nav-bar-select-bg nav-bar-animation ${!navS && "nav-bar-off"}`}
             key={pageStyle}
           ></div>
         </div>

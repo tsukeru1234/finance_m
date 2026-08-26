@@ -2,9 +2,14 @@
   position: relative;
   box-sizing: border-box;
   display: grid;
-  grid-template-columns: 4fr 22fr;
+  grid-template-columns: minmax(0, 4fr) 22fr;
   gap: var(--space-xs);
   height: 100vh;
+  transition: all 1000ms ease-in-out;
+}
+
+.nav-off {
+  grid-template-columns: minmax(0, 0.4fr) 22fr;
 }
 
 .info-box {

@@ -4,11 +4,12 @@ import "./save-history-widget.css";
 
 type SaveHistoryWidgetProps = {
   historyData: saveHistory[];
+  navKey: boolean
 };
 
-const SaveHistoryWidget = ({ historyData }: SaveHistoryWidgetProps) => {
+const SaveHistoryWidget = ({ historyData, navKey }: SaveHistoryWidgetProps) => {
   return (
-    <div className="save-history-main-box">
+    <div className="save-history-main-box nav-status-hide-page" key={navKey? "yes" : "no"}>
       <span className="money-save-history-title">Save history</span>
       <div className="money-save-history-graph-box">
         <BarChartComponent data={historyData} xAxis="date" yAxis="value" />
