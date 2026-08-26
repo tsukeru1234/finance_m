@@ -67,7 +67,7 @@ const MiniCalendar = ({ dates, navKey }: MiniCalendarProps) => {
             size="small"
             click={prevMonth}
           >
-            🠜
+            {"<"}
           </Button>
           <Button
             type="button"
@@ -75,7 +75,7 @@ const MiniCalendar = ({ dates, navKey }: MiniCalendarProps) => {
             size="small"
             click={nextMonth}
           >
-            🠞
+            {">"}
           </Button>
         </div>
       </div>

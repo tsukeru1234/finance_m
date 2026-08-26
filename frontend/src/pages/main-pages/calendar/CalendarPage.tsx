@@ -66,7 +66,7 @@ const CalendarPage = () => {
           ))}
           {daysInMonth.map((day) => {
             const calendarYMD = format(day, "yyyy-MM-dd");
-            const calendarDay = format(day, "d")
+            const calendarDay = format(day, "d");
 
             const activeEvents = sortedCalendarData.filter((item) => {
               const startEvent = format(item.start, "yyyy-MM-dd");
@@ -98,16 +98,21 @@ const CalendarPage = () => {
                 {hasEvents ? (
                   <div className="cost-event-hover-day-data">
                     {activeEvents.map((item, index) => (
-                      <span key={`hover-${item.title}-${index}`}>
+                      <span
+                        key={`hover-${item.title}-${index}`}
+                        className="calendar-hover-event-name"
+                      >
                         {item.title}
                       </span>
                     ))}
-                    <span>{calendarDay}</span>
+                    <span className="calendar-hover-day">{calendarDay}</span>
                   </div>
                 ) : (
                   <div className="cost-event-hover-day-data">
-                    <span>Ordinary day</span>
-                    <span>{calendarDay}</span>
+                    <span className="calendar-hover-event-name">
+                      Ordinary day
+                    </span>
+                    <span className="calendar-hover-day">{calendarDay}</span>
                   </div>
                 )}
               </button>

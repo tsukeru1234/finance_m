@@ -128,7 +128,7 @@
   position: absolute;
   display: flex;
   flex-direction: column;
-  gap: var(--border-lg);
+  gap: var(--border-xs);
   visibility: hidden;
   inset: 0;
   padding: var(--space-xs);
@@ -137,7 +137,10 @@
   background-color: var(--color-secondary-light);
   box-shadow: var(--border-xs) var(--border-xs) var(--space-xs)
     color-mix(in srgb, var(--color-accent-dark) 20%, transparent);
-  transition: opacity 600ms ease-in-out, width 400ms ease-in-out, height 400ms ease-in-out;
+  transition:
+    opacity 600ms ease-in-out,
+    width 400ms ease-in-out,
+    height 400ms ease-in-out;
 }
 
 .cost-events-box:is(:hover, :focus) .cost-event-hover-day-data {
@@ -147,14 +150,29 @@
 
 .cost-event-hover-day-data span {
   opacity: 0;
-  font-size: var(--font-extra-small);
-  letter-spacing: var(--small-text-letter-spacing);
-  line-height: var(--font-extra-small);
   color: var(--color-secondary-dark);
   transition: all 0ms ease-in-out 0ms;
 }
 
-.cost-events-box:is(:hover, :focus) .cost-event-hover-day-data span{
+.cost-events-box:is(:hover, :focus) .cost-event-hover-day-data span {
   opacity: 1;
   transition: all 250ms ease-in-out 200ms;
+}
+
+.calendar-hover-event-name {
+  font-size: var(--font-extra-small);
+  letter-spacing: var(--small-text-letter-spacing);
+  line-height: var(--font-extra-small);
+}
+
+.calendar-hover-day {
+  --pad-x: var(--space-md);
+  --pad-y: var(--space-xs);
+
+  position: absolute;
+  bottom: var(--pad-y);
+  right: var(--pad-x);
+  font-size: var(--font-medium);
+  letter-spacing: var(--medium-text-letter-spacing);
+  line-height: var(--font-medium);
 }

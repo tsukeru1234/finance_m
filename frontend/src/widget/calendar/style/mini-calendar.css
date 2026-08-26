@@ -10,7 +10,6 @@
 .mouth-block {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     font-size: var(--font-small);
     letter-spacing: var(--small-text-letter-spacing);
     color: var(--color-neutral-dark);
@@ -55,7 +54,7 @@
 }
 
 .mini-calendar-day:hover {
-    transform: scale(1.05);
+    transform: scale(1.1);
 }
 
 .mini-calendar-today {

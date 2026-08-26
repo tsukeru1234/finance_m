@@ -4,12 +4,12 @@
   outline: none;
   background-color: var(--color-accent-light);
   color: var(--color-secondary-light);
-  transition: all 250ms ease-in-out;
+  transition: all 300ms ease-in-out 10ms;
 }
 
 .primary-button:hover,
 .primary-button:focus {
-  transform: scale(1.02);
+  transform: scale(1.1);
   background-color: var(--color-accent-dark);
   color: var(--color-secondary-light);
 }
