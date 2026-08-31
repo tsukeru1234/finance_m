@@ -12,6 +12,8 @@ import { ru } from "date-fns/locale";
 import { useEffect, useState } from "react";
 import "./style/mini-calendar.css";
 import Button from "../../shared/ui/button/Button";
+import { useAtomValue, useSetAtom } from "jotai";
+import { chosePeriod, setPeriod } from "./model/miniCalendarData";
 
 export type MiniCalendarProps = {
   dates: Record<string, { label: string; action: () => void }>
@@ -19,6 +21,8 @@ export type MiniCalendarProps = {
 };
 
 const MiniCalendar = ({ dates, navKey }: MiniCalendarProps) => {
+  const choseMyPeriod = useAtomValue(chosePeriod)
+  const setMyPeriod = useSetAtom(setPeriod)
   const [currentMonth, setCurrentMonth] = useState(new Date());
 
   const monthStart = startOfMonth(currentMonth);
@@ -33,9 +37,9 @@ const MiniCalendar = ({ dates, navKey }: MiniCalendarProps) => {
 
   const handleDayClick = (day: Date) => {
     const dateStr = format(day, "yyyy-MM-dd");
+    setMyPeriod(day)
     if (dates[dateStr]) {
       console.log(`Кликнули на special: ${dateStr}`);
-      dates[dateStr].action();
     } else {
       console.log(`Кликнули на обычный день: ${dateStr}`);
     }

@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as MainPagesRouteImport } from './routes/main-pages'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as MainPagesTestsRouteImport } from './routes/main-pages.tests'
 import { Route as MainPagesCategoriesRouteImport } from './routes/main-pages.categories'
 import { Route as MainPagesCalendarRouteImport } from './routes/main-pages.calendar'
 import { Route as MainPagesCalculationRouteImport } from './routes/main-pages.calculation'
@@ -24,6 +25,11 @@ const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
+} as any)
+const MainPagesTestsRoute = MainPagesTestsRouteImport.update({
+  id: '/tests',
+  path: '/tests',
+  getParentRoute: () => MainPagesRoute,
 } as any)
 const MainPagesCategoriesRoute = MainPagesCategoriesRouteImport.update({
   id: '/categories',
@@ -47,6 +53,7 @@ export interface FileRoutesByFullPath {
   '/main-pages/calculation': typeof MainPagesCalculationRoute
   '/main-pages/calendar': typeof MainPagesCalendarRoute
   '/main-pages/categories': typeof MainPagesCategoriesRoute
+  '/main-pages/tests': typeof MainPagesTestsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -54,6 +61,7 @@ export interface FileRoutesByTo {
   '/main-pages/calculation': typeof MainPagesCalculationRoute
   '/main-pages/calendar': typeof MainPagesCalendarRoute
   '/main-pages/categories': typeof MainPagesCategoriesRoute
+  '/main-pages/tests': typeof MainPagesTestsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -62,6 +70,7 @@ export interface FileRoutesById {
   '/main-pages/calculation': typeof MainPagesCalculationRoute
   '/main-pages/calendar': typeof MainPagesCalendarRoute
   '/main-pages/categories': typeof MainPagesCategoriesRoute
+  '/main-pages/tests': typeof MainPagesTestsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -71,6 +80,7 @@ export interface FileRouteTypes {
     | '/main-pages/calculation'
     | '/main-pages/calendar'
     | '/main-pages/categories'
+    | '/main-pages/tests'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -78,6 +88,7 @@ export interface FileRouteTypes {
     | '/main-pages/calculation'
     | '/main-pages/calendar'
     | '/main-pages/categories'
+    | '/main-pages/tests'
   id:
     | '__root__'
     | '/'
@@ -85,6 +96,7 @@ export interface FileRouteTypes {
     | '/main-pages/calculation'
     | '/main-pages/calendar'
     | '/main-pages/categories'
+    | '/main-pages/tests'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -107,6 +119,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/main-pages/tests': {
+      id: '/main-pages/tests'
+      path: '/tests'
+      fullPath: '/main-pages/tests'
+      preLoaderRoute: typeof MainPagesTestsRouteImport
+      parentRoute: typeof MainPagesRoute
     }
     '/main-pages/categories': {
       id: '/main-pages/categories'
@@ -136,12 +155,14 @@ interface MainPagesRouteChildren {
   MainPagesCalculationRoute: typeof MainPagesCalculationRoute
   MainPagesCalendarRoute: typeof MainPagesCalendarRoute
   MainPagesCategoriesRoute: typeof MainPagesCategoriesRoute
+  MainPagesTestsRoute: typeof MainPagesTestsRoute
 }
 
 const MainPagesRouteChildren: MainPagesRouteChildren = {
   MainPagesCalculationRoute: MainPagesCalculationRoute,
   MainPagesCalendarRoute: MainPagesCalendarRoute,
   MainPagesCategoriesRoute: MainPagesCategoriesRoute,
+  MainPagesTestsRoute: MainPagesTestsRoute,
 }
 
 const MainPagesRouteWithChildren = MainPagesRoute._addFileChildren(
